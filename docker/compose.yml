@@ -1,0 +1,74 @@
+# TallyIt — инфраструктура для разработки.
+#
+# Здесь только сервисы-зависимости. Приложения (Api, Web, воркеры) в compose
+# намеренно не входят: в разработке они запускаются на хосте, чтобы работала
+# горячая перезагрузка, а не пересборка образов.
+#
+# Запуск:  docker compose -f docker/compose.yml up -d
+# Остановка: docker compose -f docker/compose.yml down
+#
+# Данные лежат на диске D: в ./data (в git не попадает, см. .gitignore).
+
+name: tallyit
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: tallyit-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-tallyit}
+      POSTGRES_USER: ${POSTGRES_USER:-tallyit}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tallyit}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - ../data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-tallyit} -d ${POSTGRES_DB:-tallyit}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  redis:
+    # Чистый кэш: персистентность отключена сознательно.
+    # Потеря Redis не должна влиять на корректность данных.
+    image: redis:7-alpine
+    container_name: tallyit-redis
+    restart: unless-stopped
+    command: ["redis-server", "--save", "", "--appendonly", "no", "--maxmemory-policy", "allkeys-lru"]
+    ports:
+      - "127.0.0.1:6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  elasticsearch:
+    # Вторичный индекс: наполняется через outbox, не является источником истины.
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.2.0
+    container_name: tallyit-elasticsearch
+    restart: unless-stopped
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      xpack.security.http.ssl.enabled: "false"
+      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+      bootstrap.memory_lock: "true"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "127.0.0.1:9200:9200"
+    volumes:
+      - ../data/elasticsearch:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9200/_cluster/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 40s

@@ -1,0 +1,36 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+TestResults/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+.turbo/
+*.tsbuildinfo
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Секреты и локальная конфигурация
+.env
+.env.*
+!.env.example
+appsettings.Local.json
+
+# Локальные данные: фото, бэкапы, тома Docker
+data/
+
+# Инструменты
+.idea/
+.vscode/
+*.swp
+
+# ОС
+Thumbs.db
+desktop.ini
+.DS_Store
