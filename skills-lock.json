@@ -1,0 +1,93 @@
+{
+  "version": 2,
+  "skills": {
+    "code-testing": {
+      "source": "dotnet/skills",
+      "commit": "2877c712edc20643b72f64e2983b168e6661d607",
+      "sourceType": "github",
+      "skillPath": "plugins/dotnet-test/skills/code-testing/SKILL.md",
+      "computedHash": "81d5ca3112a3c549c88d7d30cb914ab8a3d5f6cf3b9470f1a5b061eb3510ff5f",
+      "installMode": "copy"
+    },
+    "csharp-async": {
+      "source": "github/awesome-copilot",
+      "commit": "a06ba06d11f41b996f8c246e2a452e1bf3a17950",
+      "sourceType": "github",
+      "skillPath": "skills/csharp-async/SKILL.md",
+      "computedHash": "5fd249fbacf89f08f93a2b8ede8cb030a7d7671577d829277a0042d5c89752c7",
+      "installMode": "copy"
+    },
+    "csharp-xunit": {
+      "source": "github/awesome-copilot",
+      "commit": "a06ba06d11f41b996f8c246e2a452e1bf3a17950",
+      "sourceType": "github",
+      "skillPath": "skills/csharp-xunit/SKILL.md",
+      "computedHash": "0b2a4fec896ffd99ee11fc47417705ad23e59575c1f67aa411abf3614743611e",
+      "installMode": "copy"
+    },
+    "dotnet-best-practices": {
+      "source": "github/awesome-copilot",
+      "commit": "a06ba06d11f41b996f8c246e2a452e1bf3a17950",
+      "sourceType": "github",
+      "skillPath": "skills/dotnet-best-practices/SKILL.md",
+      "computedHash": "2e386d6bb04d6e0c706faa8755059d961c57d9319dab2ce19c41d28198cc7be9",
+      "installMode": "copy"
+    },
+    "dotnet-webapi": {
+      "source": "dotnet/skills",
+      "commit": "2877c712edc20643b72f64e2983b168e6661d607",
+      "sourceType": "github",
+      "skillPath": "plugins/dotnet-aspnetcore/skills/dotnet-webapi/SKILL.md",
+      "computedHash": "2aedc615b14b3027800a556a4bf0c28f28f21b09ffc7a546c3865f08a26b79b0",
+      "installMode": "copy"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "commit": "57217cf86ba38148a57af9e90d14a4c049558330",
+      "sourceType": "github",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "computedHash": "7bc223e2aafbdbf6e50ea243ba6ef67fe432bb069ab439fea0390795dac0bf7f",
+      "installMode": "copy"
+    },
+    "nextjs-app-router-patterns": {
+      "source": "wshobson/agents",
+      "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
+      "sourceType": "github",
+      "skillPath": "plugins/frontend-mobile-development/skills/nextjs-app-router-patterns/SKILL.md",
+      "computedHash": "39b84480d3a62355fd1199173dc70b97efe1daf6dbfae560cc7b85e127934a98",
+      "installMode": "copy"
+    },
+    "optimizing-ef-core-queries": {
+      "source": "dotnet/skills",
+      "commit": "2877c712edc20643b72f64e2983b168e6661d607",
+      "sourceType": "github",
+      "skillPath": "plugins/dotnet-data/skills/optimizing-ef-core-queries/SKILL.md",
+      "computedHash": "14bd45305955f1592917ad2ef1e3791c65bf50dd5c654b03cb6342cd6ddfbaba",
+      "installMode": "copy"
+    },
+    "playwright-best-practices": {
+      "source": "currents-dev/playwright-best-practices-skill",
+      "commit": "0b75b5835a87de1fdd202ba965f3bc5a27738fdf",
+      "sourceType": "github",
+      "skillPath": "playwright-best-practices/SKILL.md",
+      "computedHash": "111e9d3e9d63dea34814120fb6583c0b28ee45371662801d8e8d8bdf4b05dcb0",
+      "installMode": "copy"
+    },
+    "playwright-cli": {
+      "source": "microsoft/playwright-cli",
+      "commit": "b21724888b8100b05ef8dee3a92f2bb03bf4dcde",
+      "sourceType": "github",
+      "skillPath": "skills/playwright-cli/SKILL.md",
+      "computedHash": "d3c50339092b670cdda1ba2bed0bdee1c34247cdf70df475e8b7d83983a39e79",
+      "installMode": "copy"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "sourceType": "github",
+      "skillPath": "skills/react-best-practices/SKILL.md",
+      "computedHash": "7991ed4fbecdac23f47c1a40c243e00a212a9e7f3604db93959b3ae11dffe299",
+      "installMode": "copy"
+    }
+  }
+}
